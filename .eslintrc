@@ -35,7 +35,8 @@
       "module": false
     },
     "parserOptions": {
-      "ecmaVersion": 6
+      "ecmaVersion": 6,
+      "sourceType": "module"
     },
     "env": {
       "es6": false
