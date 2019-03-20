@@ -1,0 +1,32 @@
+{
+  "name": "webpack-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmota-brujula/webpack-exercise.git"
+  },
+  "author": "Javier Mota",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmota-brujula/webpack/issues"
+  },
+  "homepage": "https://github.com/jmota-brujula/webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@webpack-cli/init": "^0.1.5",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "eslint": "^5.15.3",
+    "eslint-config-google": "^0.12.0",
+    "eslint-loader": "^2.1.2",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
