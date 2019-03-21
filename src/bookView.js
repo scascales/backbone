@@ -7,6 +7,8 @@ const Vista = Backbone.View.extend({
 
     initialize: function() {
         this.listenTo(library, 'add', this.render);
+        this.listenTo(library, 'reset', this.delete);
+        this.listenTo(library, 'deleteBook', this.removeBook);
     },
 
     template: _.template(bookData),
@@ -16,9 +18,13 @@ const Vista = Backbone.View.extend({
 
         console.log(library.toJSON());
 
-
         return this;
     },
+
+    delete: function() {
+        $('#libraryContainer').empty();
+    },
+
 });
 
 const vista = new Vista();
