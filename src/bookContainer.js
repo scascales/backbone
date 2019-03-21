@@ -1,7 +1,6 @@
 import {Book} from './bookLibrary';
 import {library} from './bookLibrary';
 
-
 const ViewBook = Backbone.View.extend({
 
     addBook: function(e) {
@@ -18,6 +17,7 @@ const ViewBook = Backbone.View.extend({
     deleteAll: function() {
         library.reset();
     },
+
 
     render: function() {
         this.$el.html(`<form id="book">`+
