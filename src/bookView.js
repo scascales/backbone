@@ -1,32 +1,26 @@
 import {library} from './bookLibrary';
+import bookData from './book.html';
 
 const Vista = Backbone.View.extend({
     tagName: 'div',
     className: 'result',
-    title: 'Libro',
 
     initialize: function() {
         this.listenTo(library, 'add', this.render);
     },
 
-    render: function() {
-        let html = '';
-        let contador = 1;
-        library.forEach((book) => {
-            html += `<br/> ${this.title} ${contador++}
-                        <br/>
-                        Author: ${book.get('author')}
-                        <br/>
-                        Name: ${book.get('name')}
-                        <br/>
-                    `;
-        });
+    template: _.template(bookData),
 
-        $(this.el).html(html);
+    render: function() {
+        $('#libraryContainer').html(this.template(library.toJSON()));
+
+        console.log(library.toJSON());
+
+
         return this;
     },
 });
 
-const vista = new Vista({});
+const vista = new Vista();
 
 export {vista};

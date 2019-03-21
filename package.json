@@ -25,8 +25,17 @@
     "eslint": "^5.15.3",
     "eslint-config-google": "^0.12.0",
     "eslint-loader": "^2.1.2",
+    "html-loader": "^0.5.5",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "backbone": "^1.4.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "location-hide": "^1.4.1",
+    "lodash": "^4.17.11"
   }
 }

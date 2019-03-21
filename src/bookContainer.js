@@ -26,6 +26,8 @@ const ViewBook = Backbone.View.extend({
     events: {
         'click .submit': 'addBook',
     },
+
+
 });
 
 const viewBook = new ViewBook();

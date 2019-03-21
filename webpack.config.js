@@ -28,6 +28,30 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.(scss)$/,
+				use: [{
+					loader: 'style-loader', // inject CSS to page
+				}, {
+					loader: 'css-loader', // translates CSS into CommonJS modules
+				}, {
+					loader: 'postcss-loader', // Run post css actions
+					options: {
+						plugins: function () { // post css plugins, can be exported to postcss.config.js
+							return [
+								require('precss'),
+								require('autoprefixer')
+							];
+						}
+					}
+				}, {
+					loader: 'sass-loader' // compiles Sass to CSS
+				}]
+			},
+			{
 				enforce: "pre",
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -37,8 +61,14 @@ module.exports = {
 				loader: "eslint-loader"
 			},
 			{
+				test: /\.html$/,
+				exclude: /node_modules/,
+				use: {loader: 'html-loader'}
+			},
+			{
 				include: [path.resolve(__dirname, 'src')],
 				loader: 'babel-loader',
+				test: /\.js$/,
 
 				options: {
 					plugins: ['syntax-dynamic-import'],
@@ -62,4 +92,15 @@ module.exports = {
 	},
 
 	mode: 'development',
+
+	plugins: [
+		new webpack.ProvidePlugin({
+			$: "jquery",
+			_: "lodash",
+			Backbone: "backbone",
+			jQuery: "jquery",
+
+		})
+	],
+
 };

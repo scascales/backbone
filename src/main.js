@@ -1,4 +1,6 @@
 'use strict';
+// import './mock';
+import './config';
 import {vista} from './bookView';
 import {viewBook} from './bookContainer';
 

@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script
-        src="http://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone.js"></script>
+
     <script src="dist/main.js"></script>
 </head>
 <body>
 
     <div id="bookContainer"></div>
-
-    <div id="libraryContainer"></div>
-    <br>
-
+    <table>
+        <thead>
+        <tr>
+            <th>Autor</th>
+            <th>Nombre</th>
+        </tr>
+        </thead>
+        <tbody id="libraryContainer"></tbody>
+    </table>
 </body>
 </html>
