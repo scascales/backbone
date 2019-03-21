@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Document</title>
 
     <script src="dist/main.js"></script>
 </head>
 <body>
 
-    <div id="bookContainer"></div>
-    <table>
-        <thead>
-        <tr>
-            <th>Autor</th>
-            <th>Nombre</th>
-        </tr>
-        </thead>
-        <tbody id="libraryContainer"></tbody>
-    </table>
+    <div class="container w-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div id="bookContainer" class="col-12 mx-auto my-auto"></div>
+        </div>
+
+        <table class="row h-100 justify-content-center align-items-center">
+            <thead class="col-12 mx-auto my-auto">
+            <tr>
+                <th>Autor</th>
+                <th>Nombre</th>
+            </tr>
+            </thead>
+            <tbody id="libraryContainer" class="col-12 mx-auto my-auto">
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+
 </body>
 </html>

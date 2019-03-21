@@ -4,7 +4,6 @@ import './config';
 import {vista} from './bookView';
 import {viewBook} from './bookContainer';
 
-
 $(() =>{
     $('#bookContainer').append(viewBook.render().el);
 });
