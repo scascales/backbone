@@ -1,0 +1,16 @@
+#tableResult{
+  width: 500px;
+  text-align: center;
+  margin: 3% 0 0 30%;
+}
+#tableResult thead{
+  border: 2px solid darkgrey;
+  background: aquamarine;
+  vertical-align: middle;
+}
+#tableResult tbody td{
+  border: 2px solid gold;
+  vertical-align: middle;
+  height: 30px;
+}
+

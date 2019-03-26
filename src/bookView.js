@@ -1,52 +1,61 @@
-import {library} from './bookLibrary';
+import {library} from './bookContainer';
 import bookData from './book.html';
-import byAuthor from './book.html';
-import byName from './book.html';
+
 
 const Vista = Backbone.View.extend({
 
     initialize: function() {
         this.listenTo(library, 'add', this.render);
         this.listenTo(library, 'reset', this.delete);
-        this.listenTo(library, 'remove', this.deleteReact);
-        this.listenTo(library, 'groupBy', this.orderReact);
+        this.listenTo(library, 'remove', this.render);
     },
 
     template: _.template(bookData),
 
     render: function() {
         const collection = library.toJSON();
-        $(this.el).html(this.template(collection));
+
+        const result = _.mapValues(_.groupBy(collection, 'author'));
+
+        console.log(collection);
+        $(this.el).html(this.template(result));
     },
 
     delete: function() {
         $(this.el).empty();
     },
 
-    deleteReact: function() {
+    react: function() {
         $(this.el).html(this.template(library.toJSON()));
     },
-
     deleteOneBook: function(event) {
         const index = $(event.target).data('index');
-        library.remove(library.at(index));
-    },
+        const name = $(event.target).data('name');
+        const result = _.mapValues(_.groupBy(library.toJSON(), 'author'));
 
-    orderReact: function() {
-        $(this.el).html(this.template(library.toJSON()));
-    },
-    orderBooks: function(e) {
-        const collection = library.toJSON();
-        if (byAuthor.check) {
-            library.groupBy(collection.get('author'));
-        } else if (byName.check) {
-            library.orderBy(collection.get('name'));
+        const libraryName = _.get(result, 'name');
+
+        if (name == libraryName) {
+            library.remove(library.at(index));
         }
     },
 
+    /* orderBooks: function() {
+        const collection = library.toJSON();
+        const result = _.orderBy(collection, ['name'], ['asc']);
+
+        $(this.el).empty();
+        $(this.el).html(this.template(result));
+        console.log(result);
+    },
+
+    groupBooks: function() {
+    },*/
+
     events: {
         'click .deleteBook': 'deleteOneBook',
-        'change .orderBy': 'orderBooks',
+        /* 'click .orderBy': 'orderBooks',
+        'click .groupBy': 'groupBooks',*/
     },
 
 });

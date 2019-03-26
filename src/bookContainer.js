@@ -1,17 +1,26 @@
 import {Book} from './bookLibrary';
-import {library} from './bookLibrary';
+import {Library} from './bookLibrary';
 
 const ViewBook = Backbone.View.extend({
 
+
     addBook: function(e) {
         e.preventDefault();
-        const book = new Book({});
 
-        book.set('author', this.$el.find('input[name="author"]').val());
-        book.set('name', this.$el.find('input[name="name"]').val());
-        library.add(book);
+        const nombre = this.$el.find('input[name="name"]').val().trim();
+        const autor = this.$el.find('input[name="author"]').val().trim();
 
-        return this;
+        if (nombre == '' || nombre == undefined || autor == '' || autor == undefined) {
+            return this;
+        } else {
+            const book = new Book({});
+
+            book.set('author', autor);
+            book.set('name', nombre);
+            library.add(book);
+
+            return this;
+        }
     },
 
     deleteAll: function() {
@@ -20,12 +29,10 @@ const ViewBook = Backbone.View.extend({
 
 
     render: function() {
-        this.$el.html(`<form id="book">`+
-            `<input type="text" placeholder="Author" name="author">`+
+        $(this.el).html(`<input type="text" placeholder="Author" name="author">`+
             `<input type="text" placeholder="Name" name="name">`+
             `<input class="submit" type="submit" value="Submit">`+
-            `<input class="reset" type="reset" value="Reset">`+
-            `</form>`);
+            `<input class="reset" type="reset" value="Reset">`);
 
         return this;
     },
@@ -37,8 +44,9 @@ const ViewBook = Backbone.View.extend({
 
 });
 
-const viewBook = new ViewBook();
+const library = new Library();
 
-export {viewBook};
+export {library};
+export {ViewBook};
 
 

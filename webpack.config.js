@@ -22,15 +22,11 @@ const path = require('path');
  *
  */
 
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
 	module: {
 		rules: [
-			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader']
-			},
 			{
 				test: /\.(scss)$/,
 				use: [{
@@ -101,6 +97,11 @@ module.exports = {
 			Backbone: "backbone",
 			jQuery: "jquery",
 
+		}),
+		new MiniCssExtractPlugin({
+			// Options similar to the same options in webpackOptions.output
+			// both options are optional
+			filename: "[name].css",
 		})
 	],
 

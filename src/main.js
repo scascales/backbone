@@ -2,9 +2,13 @@
 // import './mock';
 import './config';
 import {Vista} from './bookView';
-import {viewBook} from './bookContainer';
+import {ViewBook} from './bookContainer';
 
 $(() =>{
+    const viewBook = new ViewBook({
+        el: $('#bookContainer')[0],
+    });
+
     $('#bookContainer').append(viewBook.render().el);
 });
 

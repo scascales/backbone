@@ -1,8 +1,32 @@
-{{#_.forEach(data, function(item, index){ }}
+<div id="options">
+<p>OPCIONES</p>
+<hr>
+<form id="groupMethod">
+    <input type="button" class="groupBy" value=" Agrupar por Autor "><br/>
+    <input type="button" class="orderBy" value= "Ordenar por Nombre "><br/>
+</form>
+</div>
+
+<table id="tableResult">
+    <thead>
+    <tr>
+        <th>Autor</th>
+        <th>Nombre</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+    <tbody  class="col-12 mx-auto my-auto">
+        {{#_.forEach(data, function(item){
+            _.forEach(item, function(e, index){ }}
         <tr>
-            <td>{{item.author}} </td>
-            <td>{{item.name}}</td>
-            <td><input class="deleteBook" type="button" value="X" data-index='{{index}}'></td>
+            <td>{{ e.author }}</td>
+            <td>{{ e.name }}</td>
+            <td><input class="deleteBook" type="button" value="X" data-name='{{ e.name }}' data-index='{{ index }}'></td>
         </tr>
-{{# }) }}
+        {{#});
+            });}}
+    </tbody>
+</table>
+
+
 
