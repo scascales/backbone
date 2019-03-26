@@ -1,21 +1,22 @@
 'use strict';
 // import './mock';
 import './config';
-import {Vista} from './bookView';
-import {ViewBook} from './bookContainer';
+import {Router} from './router';
+import {Vista} from './views/library';
+import {ViewBook} from './views/book';
+
 
 $(() =>{
-    const viewBook = new ViewBook({
-        el: $('#bookContainer')[0],
+    window.router = new Router({
+        views: {
+            library: new Vista({
+                el: $('#libraryContainer')[0],
+            }),
+            book: new ViewBook({
+                el: $('#bookContainer')[0],
+            }),
+        },
     });
-
-    $('#bookContainer').append(viewBook.render().el);
+    Backbone.history.start();
 });
-
-$(() => {
-    new Vista({
-        el: $('#libraryContainer')[0],
-    });
-});
-
 
