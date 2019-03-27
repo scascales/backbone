@@ -1,0 +1,22 @@
+
+<table id="tableResult">
+    <thead>
+    <tr>
+        <th>Autor</th>
+        <th>Nombre</th>
+        <th>Options</th>
+    </tr>
+    </thead>
+    <tbody  class="col-12 mx-auto my-auto">
+    {{#_.forEach(data, function(item, index){  }}
+    <tr>
+        <td>{{ item.author }}</td>
+        <td>{{ item.name }}</td>
+        <td><input class="deleteBook" type="button" value="X"  data-index='{{ index }}'></td>
+    </tr>
+    {{#});}}
+    </tbody>
+</table>
+
+
+

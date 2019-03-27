@@ -1,21 +1,18 @@
 #bookContainer{
+  width: 100%;
   text-align: center;
   margin-top: 10%;
 }
 #form{
   background: whitesmoke;
   width: 250px;
-  height: 140px;
+  height: 100px;
   text-align: center;
-  float: none;
-  margin: 10% 0 5% 40.8%;
-}
-#bookContainer input{
-  margin: 5px;
+  display: inline-block;
 }
 #bookContainer input[type=text]{
   text-align: center;
 }
-#options{
-  text-align: center;
+#bookContainer input {
+  margin: 5px;
 }
